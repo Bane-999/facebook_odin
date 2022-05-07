@@ -1,0 +1,14 @@
+<div class="user_request">
+    <div>
+        <%= user.firstname %>
+        <%= user.lastname %>
+    </div>
+   
+    <div class="request_button">
+        <%= form_with(url: friend_requests_path, method: "post") do %>
+            <input type="hidden" name="friend_request[request_id]" value="<%= user.id %>" autocomplete="off">
+            <%= submit_tag("Add") %>
+        <% end %>
+    </div>
+    
+</div>

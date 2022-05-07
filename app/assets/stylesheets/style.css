@@ -1,0 +1,12 @@
+.user_request {
+    border: 1px solid #cbc4c4;
+    padding: 20px;
+    display: flex;
+    width: max-content;
+    padding-right: 37px;
+}
+
+.request_button {
+    position: relative;
+    left: 13px;
+}

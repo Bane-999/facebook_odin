@@ -37,51 +37,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
-
-
-
-
-<h1>NEEEEEEEEWWWWWWWWWW</h1>
-
-<div class="login-area">
-
-  <h2>Sign up2</h2>
-
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    
-
-    <div class="form-inputs">
-
-      <div class="firstname">         
-        <input placeholder="First Name" autocomplete="firstname" class="log-bar string name required" autofocus="autofocus" required="required" aria-required="true" type="text" value="" name="user[firstname]" id="user_firstname">
-      </div>  
-
-      <div class="input_log email required user_username">
-        <input placeholder="Last Name" autocomplete="lastname" class="log-bar string username required" required="required" aria-required="true" type="text" value="" name="user[lastname]" id="user_lastname">
-      </div>  
-
-
-
-      <div class="input_log email required user_email">         
-        <input placeholder="Email" autocomplete="email" class="log-bar string email required" required="required" aria-required="true" type="email" value="" name="user[email]" id="user_email">
-      </div>           
-      
-      <div class="input_log password required user_password field_with_hint">           
-          <input placeholder="Password" autocomplete="new-password" class="log-bar password required" required="required" aria-required="true" type="password" name="user[password]" id="user_password">            
-      </div>
-
-      <div class="input_log password required user_password_confirmation">
-          <input placeholder="Password Confirmation" autocomplete="new-password" class="log-bar password required" required="required" aria-required="true" type="password" name="user[password_confirmation]" id="user_password_confirmation">
-      </div>
-       
-
-    </div>
-
-    <div class="form-actions-log">
-      <%= f.submit "Sign up" %>
-      <%= render "devise/shared/links"%> 
-    </div>
-  <% end %>
   
 </div>
