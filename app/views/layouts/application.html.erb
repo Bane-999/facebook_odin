@@ -12,6 +12,10 @@
 
   <body>
 
+    <% if user_signed_in? %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+    <% end %>
+
     <% if flash[:notice]%>
       <p class="notice" style="color: green"><%= notice %></p>
     <% end %>
