@@ -7,7 +7,7 @@
     <div class="request_button">
         <%= form_with(url: friend_requests_path, method: "post") do %>
             <input type="hidden" name="friend_request[request_id]" value="<%= user.id %>" autocomplete="off">
-            <%= submit_tag("Add") %>
+            <%= submit_tag("Add", class: "btn") %>
         <% end %>
     </div>
     

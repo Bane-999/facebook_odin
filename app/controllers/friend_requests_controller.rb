@@ -12,10 +12,8 @@ class FriendRequestsController < ApplicationController
     end
 
     respond_to do |format|
-      if @friend_request.save
-        99.times do
-          puts @friend_request.save
-        end
+      if @friend_request.save  
+              
         format.html { redirect_to users_path, notice: "Friend request was successfully created." }        
       else
         format.html { redirect_to users_path, notice: "Friend request was NOT successfully created!" }

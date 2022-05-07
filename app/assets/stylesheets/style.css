@@ -3,10 +3,14 @@
     padding: 20px;
     display: flex;
     width: max-content;
+    min-width: 237px;
     padding-right: 37px;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.request_button {
-    position: relative;
-    left: 13px;
+.btn {
+    height: 32px;
+    width: 85px;
 }
