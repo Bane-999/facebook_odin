@@ -44,7 +44,6 @@ class FriendRequestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def friend_request_params
-      # params.fetch(:friend_request, {})
       params.require(:friend_request).permit(:request_id)
     end
 end

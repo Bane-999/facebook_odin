@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_07_174951) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_08_013437) do
   create_table "friend_requests", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "request_id", null: false
@@ -19,6 +19,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_174951) do
     t.index ["request_id"], name: "index_friend_requests_on_request_id"
     t.index ["user_id", "request_id"], name: "index_friend_requests_on_user_id_and_request_id", unique: true
     t.index ["user_id"], name: "index_friend_requests_on_user_id"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "friend_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index "\"user_id\", \"friend\"", name: "index_friendships_on_user_id_and_friend", unique: true
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -43,4 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_174951) do
 
   add_foreign_key "friend_requests", "users"
   add_foreign_key "friend_requests", "users", column: "request_id"
+  add_foreign_key "friendships", "users"
+  add_foreign_key "friendships", "users", column: "friend_id"
 end
