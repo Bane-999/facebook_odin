@@ -29,6 +29,14 @@
         <%= link_to 'All Users', users_path %>
         <%= current_user.firstname %>
         <%= current_user.lastname %>
+
+        <div class="notifications">        
+          <% if current_user.requests.count != 0 %>
+            <p><%= link_to "Friend Requests:", friend_requests_path %></p>
+            <div class="notif_count"><%= current_user.requests.count%></div>            
+          <% end %>
+        </div>
+        
       </div>
 
     <% end %>

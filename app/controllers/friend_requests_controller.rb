@@ -1,7 +1,11 @@
 class FriendRequestsController < ApplicationController
   before_action :set_friend_request, only: %i[ show edit update destroy ]
 
-  
+  def index
+    @friend_requests = current_user.requests
+  end
+
+
   # POST /friend_requests or /friend_requests.json
   def create
     

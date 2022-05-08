@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :friend_requests
-         has_many :requests, through: :friend_requests 
+         has_many :requests, foreign_key: "request_id", class_name: "FriendRequest"
 end
