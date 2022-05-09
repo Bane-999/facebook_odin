@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
+    @list = ((current_user.friend_requests.map {|x| x.request_id}) + (current_user.requests.map {|x| x.user_id}) + (current_user.friendships.map {|x| x.friend_id})).uniq  
   end
 
   
