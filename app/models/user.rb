@@ -8,4 +8,5 @@ class User < ApplicationRecord
          has_many :requests, foreign_key: "request_id", class_name: "FriendRequest"
          has_many :friendships
          has_many :friends, foreign_key: "friend_id", class_name: "Friendship"
+         has_many :messages
 end

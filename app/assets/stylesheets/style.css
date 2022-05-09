@@ -40,3 +40,18 @@
 a {
     text-decoration: none;
 }
+
+.messages {
+    border: 1px solid grey;
+    padding: 23px;
+}
+
+#message-box {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;    
+}
+
+.msg-text {
+    font-style: italic ;
+}

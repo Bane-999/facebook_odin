@@ -1,0 +1,16 @@
+<div class="messages">
+  <p>
+    <strong>
+        <%= message.user.firstname %>
+        <%= message.user.lastname %>    
+    :</strong>
+    <span class="msg-text">
+      <%= message.body %>
+    </span>
+    
+  </p>
+  <div>
+        <%= link_to "Show this message", message %>    
+  </div>
+
+</div>
