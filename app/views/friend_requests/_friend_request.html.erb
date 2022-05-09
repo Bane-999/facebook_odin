@@ -11,6 +11,7 @@
     <div class="accept_button">
         <%= form_with(url: friendships_path, method: "post") do %>
             <input type="hidden" name="friendship[friend_id]" value="<%= friend_request.user_id %>" autocomplete="off">
+            <input type="hidden" name="friendship[id]" value="<%= friend_request.id %>" autocomplete="off">
             <%= submit_tag("Accept", class: "btn") %>
         <% end %>
     </div>

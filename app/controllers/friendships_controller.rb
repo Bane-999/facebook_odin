@@ -3,7 +3,7 @@ class FriendshipsController < ApplicationController
 
   # GET /friendships or /friendships.json
   def index
-    @friendships = Friendship.all
+    @friendships = current_user.friendships
   end
 
 
@@ -14,7 +14,10 @@ class FriendshipsController < ApplicationController
     @friendship2 = User.find(friendship_params["friend_id"]).friendships.new(friend_id: current_user.id)
 
     respond_to do |format|
-      if @friendship.save && @friendship2.save
+      if @friendship.save && @friendship2.save 
+        
+        FriendRequest.destroy(friend_request_params["id"])        
+        
         format.html { redirect_to friend_requests_path, notice: "Friendship was successfully created." }        
       else
         format.html { redirect_to friend_requests_path, notice: "Friendship was NOT successfully created." }
@@ -42,5 +45,9 @@ class FriendshipsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def friendship_params
       params.require(:friendship).permit(:friend_id)
+    end
+
+    def friend_request_params
+      params.require(:friendship).permit(:id)
     end
 end

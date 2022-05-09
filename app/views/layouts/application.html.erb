@@ -25,16 +25,32 @@
 
     <% if user_signed_in? %>
       <div class="header"> 
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>     
-        <%= link_to 'All Users', users_path %>
-        <%= current_user.firstname %>
-        <%= current_user.lastname %>
+      <div class="header-links">
+        <div class="links">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %> 
+        </div>
+        <div class="links">
+          <%= link_to 'All Users', users_path %>
+        </div>
+        <div class="links">
+          <%= link_to 'Friends', friendships_path %>
+        </div>
+        <div class="links">
+          <%= link_to 'Posts', posts_path %>
+        </div>
+      </div>  
+        
+        <h3>
+            <%= current_user.firstname %>
+            <%= current_user.lastname %>
+        </h3>
+        
 
         <div class="notifications">        
           <% if current_user.requests.count != 0 %>
             <p><%= link_to "Friend Requests:", friend_requests_path %></p>
             <div class="notif_count"><%= current_user.requests.count%></div>            
-          <% end %>
+          <% end %> 
         </div>
         
       </div>

@@ -26,3 +26,17 @@
     position: relative;
     left: 5px;
 }
+
+.header-links {
+    display: flex;
+    gap: 14px;
+}
+
+.links {
+    border: 1px solid grey;
+    padding: 13px;
+}
+
+a {
+    text-decoration: none;
+}

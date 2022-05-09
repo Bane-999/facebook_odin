@@ -1,2 +1,6 @@
 <div id="<%= dom_id friendship %>">
+    <h3>
+        <%= User.find(friendship.friend_id).firstname%>
+        <%= User.find(friendship.friend_id).lastname%>
+    </h3>
 </div>
