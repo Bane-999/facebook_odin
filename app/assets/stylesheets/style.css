@@ -55,3 +55,15 @@ a {
 .msg-text {
     font-style: italic ;
 }
+
+.like {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.count {
+    margin-left: 15px;
+}

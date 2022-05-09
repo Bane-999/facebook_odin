@@ -12,5 +12,14 @@
   <div>
         <%= link_to "Show this message", message %>    
   </div>
+  <div class="like">
+        <%= form_with(url: likes_path, method: "post") do %>
+            <input type="hidden" name="like[message_id]" value="<%= message.id %>" autocomplete="off">
+            <%= image_submit_tag("thumb_up_black_24dp.svg") %>
+        <% end %>
+
+        <p class="count"><%= message.likes.count %></p>
+        
+  </div>
 
 </div>
