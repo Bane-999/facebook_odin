@@ -79,3 +79,13 @@ a {
     height: 22px;
     margin-left: 49px;
 }
+
+.comments {
+    border: 2px solid grey;
+    padding: 23px;
+    margin-left: 95px;
+}
+
+.comm_info {
+    
+}

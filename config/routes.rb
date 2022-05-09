@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :messages
+  
+  resources :messages do
+    resources :comments
+  end
+  
   resources :friendships, only: [:create, :index]
   resources :users, only: [:index]
   devise_for :users, controllers: {registrations: "registrations"}

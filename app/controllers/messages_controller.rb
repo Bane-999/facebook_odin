@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
 
   # GET /messages/1 or /messages/1.json
   def show
+    @comments = Message.find(params[:id]).comments
   end
 
   # GET /messages/new
@@ -66,5 +67,9 @@ class MessagesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def message_params
       params.require(:message).permit(:body)
+    end
+
+    def comment_params
+      params.require(:comment).permit(:id)
     end
 end
