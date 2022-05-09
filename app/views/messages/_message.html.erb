@@ -9,9 +9,7 @@
     </span>
     
   </p>
-  <div>
-        <%= link_to "Show this message", message %>    
-  </div>
+  
   <div class="like">
         <%= form_with(url: likes_path, method: "post") do %>
             <input type="hidden" name="like[message_id]" value="<%= message.id %>" autocomplete="off">
@@ -19,6 +17,12 @@
         <% end %>
 
         <p class="count"><%= message.likes.count %></p>
+
+        <div>
+              <%= link_to message do %>  
+                <%= image_tag "comment-text-multiple-outline.png", class: "comment_icon" %>
+              <% end %>  
+        </div>
         
   </div>
 

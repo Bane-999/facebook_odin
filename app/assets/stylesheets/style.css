@@ -67,3 +67,15 @@ a {
 .count {
     margin-left: 15px;
 }
+
+.user-info {
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.comment_icon {
+    height: 22px;
+    margin-left: 49px;
+}
