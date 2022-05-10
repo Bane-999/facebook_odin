@@ -6,4 +6,18 @@
     
     <p class="msg-text"><%= comment.body %></p>
 
+    <div class="like">
+        <%= form_with(url: likes_path, method: "post") do %>
+            <input type="hidden" name="like[likeable_id]" value="<%= comment.id %>" autocomplete="off">
+            <input type="hidden" name="message_id" value="<%= comment.message.id %>" autocomplete="off">
+            <input type="hidden" name="like[user_id]" value="<%= current_user.id %>" autocomplete="off">
+             <input type="hidden" name="like[id]" value="<%= params[:id] %>" autocomplete="off">            
+            <input type="hidden" name="commit" value="comment" autocomplete="off">
+            <%= image_submit_tag("thumb_up_black_24dp.svg") %>
+        <% end %>
+
+        <p class="count"><%= comment.likes.count %></p>
+        
+    </div>
+
 </div>
