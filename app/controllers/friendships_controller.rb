@@ -10,19 +10,27 @@ class FriendshipsController < ApplicationController
   # POST /friendships or /friendships.json 
   def create
 
-    @friendship = current_user.friendships.new(friendship_params)
-    @friendship2 = User.find(friendship_params["friend_id"]).friendships.new(friend_id: current_user.id)
+    if params[:commit] == 'Accept'
 
-    respond_to do |format|
-      if @friendship.save && @friendship2.save 
-        
-        FriendRequest.destroy(friend_request_params["id"])        
-        
-        format.html { redirect_to friend_requests_path, notice: "Friendship was successfully created." }        
-      else
-        format.html { redirect_to friend_requests_path, notice: "Friendship was NOT successfully created." }
+      @friendship = current_user.friendships.new(friendship_params)
+      @friendship2 = User.find(friendship_params["friend_id"]).friendships.new(friend_id: current_user.id)
+
+      respond_to do |format|
+          if @friendship.save && @friendship2.save 
+            
+            FriendRequest.destroy(friend_request_params["id"])        
+            
+            format.html { redirect_to friend_requests_path, notice: "Friendship was successfully created." }        
+          else
+            format.html { redirect_to friend_requests_path, notice: "Friendship was NOT successfully created." }
+          end
       end
+
+    elsif params[:commit] == 'Decline'
+       FriendRequest.destroy(friend_request_params["id"])
+       redirect_to users_path
     end
+
   end
 
 
