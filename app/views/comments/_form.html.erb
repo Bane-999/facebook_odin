@@ -12,7 +12,8 @@
   <% end %>
 
   <div>      
-        <%= form.text_field :body %>      
+        <%= form.text_field :body %>   
+        <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>">   
   </div>
 
   <div>

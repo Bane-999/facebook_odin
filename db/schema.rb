@@ -13,10 +13,12 @@
 ActiveRecord::Schema[7.0].define(version: 2022_05_09_200551) do
   create_table "comments", force: :cascade do |t|
     t.integer "message_id", null: false
+    t.integer "user_id", null: false
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["message_id"], name: "index_comments_on_message_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "friend_requests", force: :cascade do |t|
@@ -77,6 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_09_200551) do
   end
 
   add_foreign_key "comments", "messages"
+  add_foreign_key "comments", "users"
   add_foreign_key "friend_requests", "users"
   add_foreign_key "friend_requests", "users", column: "request_id"
   add_foreign_key "friendships", "users"

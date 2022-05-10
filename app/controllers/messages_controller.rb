@@ -3,12 +3,15 @@ class MessagesController < ApplicationController
 
   # GET /messages or /messages.json
   def index
-    @messages = Message.all
+    @friends = current_user.friendships.map { |x| x.friend }
+    @messages = ((current_user.messages)+(@friends.map {|x| x.messages}))
+
   end
 
   # GET /messages/1 or /messages/1.json
   def show
     @comments = Message.find(params[:id]).comments
+
   end
 
   # GET /messages/new
